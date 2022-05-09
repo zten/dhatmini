@@ -247,6 +247,7 @@ impl<DI, RST, PinE> ST7789V2<DI, RST>
         where
             T: IntoIterator<Item = u16>,
     {
+        println!("drawing batch within bounds {} {} {} {}", sx, sy, ex, ey);
         self.set_address_window(sx, sy, ex, ey)?;
         self.write_command(Instruction::RAMWR)?;
         self.di

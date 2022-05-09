@@ -215,6 +215,7 @@ impl<DI, RST, PinE> ST7789V2<DI, RST>
     /// * `color` - the Rgb565 color value
     ///
     pub fn set_pixel(&mut self, x: u16, y: u16, color: u16) -> Result<(), Error<PinE>> {
+        println!("setting single pixel color!");
         self.set_address_window(x, y, x, y)?;
         self.write_command(Instruction::RAMWR)?;
         self.di
